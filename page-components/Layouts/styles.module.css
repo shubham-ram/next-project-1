@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    align-items: flex-start;
+}
+.navbar_div{
+    width: 25vw;
+}
+
+.content_div{
+    width: 75vw;
+}
