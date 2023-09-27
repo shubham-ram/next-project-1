@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+
+import React, { useState,useEffect } from 'react'
 import List from './List'
 import styles from './styles.module.css';
+import useGetTask from '../hooks/useGetTask';
 
 const DEFAULT_TASK = {
     pending_task : ['Study1', 'Game1'],
@@ -12,6 +14,12 @@ const TASK_LIST = ['pending_task', 'in_progress_task', 'completed'];
 
 function ToDoList() {
     const [taskList, setTaskList] = useState(DEFAULT_TASK);
+
+    const {getTask} = useGetTask();
+
+    useEffect(()=>{
+        getTask()
+    },[])
 
     return (
         <div className={styles.container}>
