@@ -6,4 +6,8 @@ function About() {
     )
 }
 
-export default About
+export default About;
+
+// About.getLayout = function({children}){
+//     return children
+// }
