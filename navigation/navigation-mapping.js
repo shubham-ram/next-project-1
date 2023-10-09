@@ -10,6 +10,10 @@ const navigation_mapping = [
     {
         name: "Task List",
         href: "/to-do-list"
+    },
+    {
+        name:"Counter",
+        href:"/counter"
     }
 ]
 export default navigation_mapping;
