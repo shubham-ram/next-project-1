@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cogoport/stylelint-config": "^1.0.3",
     "@next/eslint-plugin-next": "^13.5.2",
     "eslint-config-next": "13.4.19",
     "lodash": "^4.17.21",
@@ -22,8 +23,8 @@
     "redux": "^4.2.1"
   },
   "devDependencies": {
-    "eslint": "^8.49.0",
-    "eslint-config-prettier": "^9.0.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.0",
     "prettier": "^3.0.3"
   }
 }
