@@ -1,11 +1,11 @@
-import React from 'react'
+import {forwardRef} from 'react'
 
-function Text(props) {
-	const {control, ...rest} = props
+function Text(props,ref) {
+	// const {control, ...rest} = props
 
 	return (
-		<input style={{display:'block'}} {...rest} {...control}/>
+		<input style={{display:'block'}} {...props} ref={ref}/>
 	)
 }
 
-export default Text
+export default forwardRef(Text)

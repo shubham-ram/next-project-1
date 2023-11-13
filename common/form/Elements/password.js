@@ -1,11 +1,12 @@
 import React from 'react'
+import {forwardRef} from 'react'
 
-function Password(props) {
+function Password(props,ref) {
   const {control, ...rest} = props
   
 	return (
-		<input style={{display:'block'}} {...rest} {...control} type='text'/>
+		<input style={{display:'block'}} {...props} ref={ref}  type='text'/>
 	)
 }
 
-export default Password
+export default forwardRef(Password)
