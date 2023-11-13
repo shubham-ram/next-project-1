@@ -1,0 +1,40 @@
+.container {
+	padding: 20px;
+}
+
+.row {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.time_container {
+	margin: 20px 0;
+	font-size: 40px;
+}
+
+.time_container > span {
+	margin: 0 5px;
+}
+
+.col {
+	margin: 0 12px;
+}
+
+.label {
+	font-size: 14px;
+	color: #333;
+	text-transform: capitalize;
+}
+
+.footer {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	margin: 20px;
+}
+
+.errors {
+	font-size: 11px;
+	color: red;
+}

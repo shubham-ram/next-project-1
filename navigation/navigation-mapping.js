@@ -14,6 +14,10 @@ const navigation_mapping = [
     {
         name:"Counter",
         href:"/counter"
+    },
+    {
+        name: "Timer",
+        href:"/timer"
     }
 ]
 export default navigation_mapping;
