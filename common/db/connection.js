@@ -1,21 +1,11 @@
-import mysql from "mysql2/promise"
+import { Pool } from "pg";
 
-export async function getQueryData({query, values}){
-    const dbConnection  = await mysql.createConnection({
-        host: "sql12.freesqldatabase.com",
-        user: "sql12649050",
-        database: "sql12649050",
-        port: 3306,
-        password: "6lLxwWpfxv",
-    });
+const pool = new Pool({
+    user: process.env.PGSQL_USER,
+    password: process.env.PGSQL_PASSWORD,
+    host: process.env.PGSQL_HOST,
+    port: process.env.PGSQL_PORT,
+    database: process.env.PGSQL_DATABASE
+})
 
-    try{
-        const [data] = await dbConnection.execute(query,values);
-        dbConnection.close();
-        return data;
-        
-    } catch(err) {
-        throw Error(err);
-
-    }
-}
+export default pool;
