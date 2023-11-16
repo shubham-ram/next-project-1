@@ -1,8 +1,7 @@
-import { useForm } from "react-hook-form";
 import styles from './styles.module.css'
-import { useState } from 'react';
 import getField from "@/common/form/getField";
-import { loginControls, signUpControls } from "../configuration/loginControls";
+import { toast } from 'react-toastify';
+import useAuthentication from "../hook/useAuthentication";
 
 const FOOTER_TEXT = {
     false: "Already have an account? Log in",
@@ -10,16 +9,21 @@ const FOOTER_TEXT = {
 }
 
 function LoginSignup() {
-    const [isLogin, setIsLogin] = useState(true);
+    const { isLogin, setIsLogin,formHook, controls, submitHandler } = useAuthentication();
 
-    const {register, handleSubmit, formState:{errors}} = useForm();
-    const controls = isLogin ? loginControls : signUpControls;
+    const {register, handleSubmit, formState: {errors}} = formHook || {};
 
-    const onSubmit = (data)=>{
-        console.log(data);
-    }
-
-    console.log(errors,'errors');
+    // const onSubmit = (data)=>{
+    //     console.log(data,'data');
+    //     loginUser(data)
+    //     toast.success('Checking', {
+    //         position: toast.POSITION.TOP_CENTER,
+    //         theme: "colored",
+    //         hideProgressBar: true,
+    //         pauseOnHover: false,
+    //         autoClose:1000
+    //     })
+    // }
 
     return (
         <div className={styles.main}>
@@ -32,12 +36,25 @@ function LoginSignup() {
 
                         return (
                             <div key={name} className={styles.col}>
-                                <Elements key={name} control = {register(name, rules)} {...config} />
+                                <Elements 
+                                    key={name} 
+                                    {...config}  
+                                    {...register(name, rules)} 
+                                />
+                                <p className={styles.error}>
+                                    {errors?.[name]?.message || errors?.[name]?.type}
+                                </p>
                             </div>
                         )
                     })}
-                    <button onClick={handleSubmit(onSubmit)}>Submit</button>
-                    <p className={styles.footer_txt} onClick={()=>setIsLogin((prev)=>!prev)}>{FOOTER_TEXT[isLogin]}</p>
+                    <button onClick={handleSubmit(submitHandler)}>Submit</button>
+
+                    <p 
+                        className={styles.footer_txt}
+                        onClick={()=>setIsLogin((prev)=>!prev)}
+                    >
+                        {FOOTER_TEXT[isLogin]}
+                    </p>
                 </div>
 
                 
