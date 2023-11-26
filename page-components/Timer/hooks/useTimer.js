@@ -36,6 +36,11 @@ const useTimer = () => {
                 const {hr: prevHr, min: prevMin, sec: prevSec} = prev;
                 let hr=prevHr, min=prevMin, sec = prevSec -1;
 
+                if(prevHr === 0  && prevMin === 0 && prevSec === 0){
+                    stopTimer();
+                    return { hr: prevHr, min: prevMin, sec: prevSec }
+                }
+
                 if( prevSec === 0 && prevMin > 0){
                     sec = 59;
                     min = prevMin - 1;
