@@ -12,12 +12,16 @@ const navigation_mapping = [
         href: "/to-do-list"
     },
     {
-        name:"Counter",
-        href:"/counter"
+        name: 'Movies',
+        href: '/movies'
+    },
+    {
+        name: "Counter",
+        href: "/counter"
     },
     {
         name: "Timer",
-        href:"/timer"
+        href: "/timer"
     }
 ]
 export default navigation_mapping;
