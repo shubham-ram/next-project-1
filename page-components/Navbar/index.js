@@ -6,7 +6,7 @@ function Navbar() {
     return (
         <div className={styles.container}>
             {navigation_mapping.map((nav) => (
-                <Link key={nav} className={styles.col} href={nav.href}>{nav.name}</Link>
+                <Link key={nav.href} className={styles.col} href={nav.href}>{nav.name}</Link>
             ))}
         </div>
     )

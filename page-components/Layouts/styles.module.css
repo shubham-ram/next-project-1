@@ -1,11 +1,12 @@
-.container{
+.container {
     display: flex;
     align-items: flex-start;
 }
-.navbar_div{
+
+.navbar_div {
     width: 25vw;
 }
 
-.content_div{
+.content_div {
     width: 75vw;
 }
