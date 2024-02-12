@@ -1,0 +1,26 @@
+.flex_box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    padding: 12px;
+    margin: 8px;
+    border: 1px solid #838383;
+}
+
+.flex_col {
+    padding: 0 8px;
+}
+
+.label {
+    margin-bottom: 4px;
+    font-size: 12px;
+}
+
+.add_btn {
+    margin-top: 12px;
+}
+
+.field_container {
+    width: 100%;
+    margin: 10px 0;
+}
