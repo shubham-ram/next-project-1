@@ -22,6 +22,10 @@ const navigation_mapping = [
     {
         name: "Timer",
         href: "/timer"
+    },
+    {
+        name: "Nested Form",
+        href: "/nested-form"
     }
 ]
 export default navigation_mapping;
