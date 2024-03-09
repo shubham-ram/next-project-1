@@ -50,7 +50,6 @@ function FormItem({ formhook, name, controls, defaultValues, nestedLevel, setCon
             })}
             <div className={styles.add_btn}>
                 <Button size='sm' onClick={() => append(defaultValues)}>Add {nestedLevel}</Button>
-                <Button onClick={grpHandler}>Add group</Button>
             </div>
         </div>
     )

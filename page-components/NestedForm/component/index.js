@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './styles.module.css';
-import formControls, { newFormControls } from '../configuration/formControls';
+import formControls, { newFormControls, appendControls } from '../configuration/formControls';
 import getField from '@/common/form/getField';
 import useNestedForm from '../hook/useNestedForm';
 import FormItem from './FormItem';
@@ -12,6 +12,26 @@ function NestedForm() {
 
     const { formHook, onSubmit, onError } = useNestedForm();
     const { register, handleSubmit } = formHook;
+
+    const addGrp = () => {
+        setControlsState((prev) => {
+            const length = prev[0].controls.length
+            return ([
+                {
+                    ...prev[0],
+                    controls: [
+                        ...prev[0].controls,
+                        {
+                            ...appendControls,
+                            name: `info_${length}`
+                        }
+                    ]
+                }
+            ])
+        })
+    }
+
+    console.log(controlsState, 'controlsState');
 
     return (
         <div className={styles.container}>NestedForm
@@ -27,7 +47,8 @@ function NestedForm() {
                                 formhook={formHook}
                                 {...control}
                                 nestedLevel={0}
-                                setControlsState={setControlsState} />
+                                setControlsState={setControlsState}
+                            />
                         )
                     }
 
@@ -42,7 +63,7 @@ function NestedForm() {
                         </div>
                     )
                 })}
-
+                <Button className={styles.cndBtn} onClick={addGrp}>Condition Group</Button>
                 <Button onClick={handleSubmit(onSubmit, onError)}>Submit</Button>
             </div>
         </div>

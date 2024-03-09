@@ -125,5 +125,7 @@ const newFormControls = [
         ]
     }
 ]
-export { newFormControls }
+const appendControls = newFormControls[0];
+
+export { newFormControls, appendControls }
 export default formControls
